@@ -1,0 +1,19 @@
+{
+    "name": "garkavenkov/laravel-test-helper",
+    "description": "Helper for testing laravel projects",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Maksim Garkavenkov",
+            "email": "maksim.garkavenkov@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "TestHelper\\": "src/"
+        }
+    }
+}
