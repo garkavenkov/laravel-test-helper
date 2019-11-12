@@ -29,6 +29,13 @@ class ModelHelper
     private $attributes;
 
     /**
+     * Factory states
+     *
+     * @var string
+     */
+    private $states;
+
+    /**
      * Contructor
      *
      * @param string $namespace
@@ -37,7 +44,8 @@ class ModelHelper
     {        
         $this->attributes = [];
         $this->model = '';
-    
+        $this->states = '';
+
         $this->namespace = $this->parseNamespace($namespace);
     }
 
@@ -132,8 +140,12 @@ class ModelHelper
      * @return mixed
      */
     public function create($count = null)
-    {
-        return factory($this->model, $count)->states($this->states)->create($this->attributes);
+    {     
+        if ($this->states) {
+            return factory($this->model, $count)->states($this->states)->create($this->attributes);    
+        } else {
+            return factory($this->model, $count)->create($this->attributes);    
+        }        
     }
 
     /**
