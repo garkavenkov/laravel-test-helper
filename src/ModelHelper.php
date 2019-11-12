@@ -133,7 +133,7 @@ class ModelHelper
      */
     public function create($count = null)
     {
-        return factory($this->model, $count)->create($this->attributes);
+        return factory($this->model, $count)->states($this->states)->create($this->attributes);
     }
 
     /**
