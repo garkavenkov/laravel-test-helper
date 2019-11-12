@@ -114,6 +114,18 @@ class ModelHelper
     }
     
     /**
+     * Factory states
+     *
+     * @param string $states
+     * @return ModelHelper
+     */
+    public function states($states = null)
+    {
+        $this->states = $states;
+        return $this;
+    }
+
+    /**
      * Creates and persists model
      *
      * @param integer $count
