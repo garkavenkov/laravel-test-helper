@@ -142,10 +142,15 @@ class ModelHelper
     public function create($count = null)
     {     
         if ($this->states) {
-            return factory($this->model, $count)->states($this->states)->create($this->attributes);    
+            $instance =  factory($this->model, $count)->states($this->states)->create($this->attributes);    
         } else {
-            return factory($this->model, $count)->create($this->attributes);    
+            $instance =  factory($this->model, $count)->create($this->attributes);    
         }        
+        
+        $this->attributes = [];
+        $this->states = '';
+
+        return $instance;
     }
 
     /**
@@ -167,7 +172,10 @@ class ModelHelper
      */
     public function make($count = null)
     {
-        return  factory($this->model, $count)->make($this->attributes);
+        $instance =  factory($this->model, $count)->make($this->attributes);
+        $this->attributes = [];
+        return $instance;
+
     }
 
     /**
